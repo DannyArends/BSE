@@ -5,25 +5,19 @@
 # last modified Dec, 2013
 # first written Dec, 2013
 # 
-# Run example
+# k: Number of hypothesed latent variables  
 #
 
-BSE.example <- function(){
-  y <-as.matrix(read.table("input_66002.csv"))
-	s<-ncol(y)
-	g<-nrow(y)
-	k<-2   #number of hypothesed latent variables  
-	npoints<-30
+BSE.example <- function(k = 2, n.points = 30, n.iter = 600, n.burnin = 100, n.thin = 1){
+  data(input66002)
+	s <- ncol(input66002)
 
-	R     <-  600 	# n.iter
- 	Rburn <-  100   # n.burnin 
-	Rthin <-  1		  # n.thin  
+	# Metropolis
+	metro.draws <- metropolis(input66002, k, n.iter, n.burnin, n.thin) 
 
-	# Metropolis 
-	Metro.draws<-Metropolis(y,k,R,Rburn,Rthin) 
-	post.out<-postmat(Metro.draws,s,k)
-	amatrix<-post.out$amatrix
-	bmatrix<-post.out$bmatrix
+	post.out <- postmat(metro.draws, ncol(input66002), k)
+
+	estimators<-margGH.bs(y, k, post.out$amatrix, post.out$bmatrix, n.points) 
 	
-	estimators<-margGH.bs(y,k,amatrix,bmatrix,npoints) 
+  cat("Predicted: ", estimators, "\n", sep="")
 }
