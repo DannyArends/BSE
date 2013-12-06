@@ -1,0 +1,9 @@
+Package: BSE
+Version: 0.0.0-1
+Date: 18 Oct 2011
+Title: Correlated Trait Locus (CTL) mapping in R
+Author: Silia Vitoratou <vasiliki.vitoratou@kcl.ac.uk>; Danny Arends <Danny.Arends@gmail.com>
+Maintainer: Danny Arends <Danny.Arends@gmail.com>
+Depends: R (>= 2.10), lattice, Brobdingnag, MASS, arm, mcmc, pscl, statmod, parallel
+Description: Bridge sampling estimators
+License: GPL-3
