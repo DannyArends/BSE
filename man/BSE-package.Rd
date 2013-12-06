@@ -22,8 +22,8 @@
 }
 \seealso{
   \itemize{
-    \item \code{\link{function1}} - Function 1
-    \item \code{\link{function2}} - Function 2
+    \item \code{\link{metropolis}} - Parameter estimation
+    \item \code{\link{meanlog}} - De-log large numbers
   }
 }
 \keyword{package}
