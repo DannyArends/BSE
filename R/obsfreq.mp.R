@@ -20,5 +20,5 @@ obsfreq.mp <- function(x){
    					        out
    					 }) 
 	pm.mp<- matrix(as.numeric(t(i.obsm)),ncol=s)
-	return(list(obs.mp=obs.mp,n.mp=n.mp,pm.mp=pm.mp))
+	return(list(obs.mp=obs.mp, n.mp=n.mp, pm.mp=pm.mp))
 }
